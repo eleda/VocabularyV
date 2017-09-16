@@ -14,8 +14,7 @@
    <string>Vocabulary</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(238, 238, 236);
-color: rgb(46, 52, 54);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -99,7 +98,7 @@ color: rgb(46, 52, 54);</string>
      <x>0</x>
      <y>0</y>
      <width>690</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
