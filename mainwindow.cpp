@@ -61,9 +61,20 @@ void MainWindow::updateAddModifyFields(int currentRow)
     if (currentRow> -1) {
     int idx = ui->listWidget->currentIndex().row();
     QString currentEntry = entries->at(idx);
-    QStringList parts = currentEntry.split("=");
-    ui->lineEdit_word->setText(parts.at(0));
-    ui->lineEdit_meaning->setText(parts.at(1));
+
+    if (currentEntry.contains("="))
+    {
+        QStringList parts = currentEntry.split("=");
+        ui->lineEdit_word->setText(parts.at(0));
+        ui->lineEdit_meaning->setText(parts.at(1));
+    }
+    else
+    {
+        QStringList parts = currentEntry.split("=");
+        ui->lineEdit_word->setText(currentEntry);
+        ui->lineEdit_meaning->clear();
+    }
+
     setUpdate(true);
 
     }

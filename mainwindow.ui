@@ -98,7 +98,7 @@
      <x>0</x>
      <y>0</y>
      <width>690</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -215,7 +215,6 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
-  <tabstop>listWidget</tabstop>
   <tabstop>lineEdit_word</tabstop>
   <tabstop>lineEdit_meaning</tabstop>
   <tabstop>pushButton_addModify</tabstop>
