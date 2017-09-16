@@ -146,6 +146,7 @@
    <addaction name="actionDelete"/>
    <addaction name="separator"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionSave">
    <property name="text">
     <string>Mentés</string>

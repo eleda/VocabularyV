@@ -57,6 +57,8 @@ private slots:
 
     void on_actionSave_triggered();
 
+    void on_listWidget_clicked(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     QStringList *entries;

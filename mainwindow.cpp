@@ -62,6 +62,8 @@ void MainWindow::updateAddModifyFields(int currentRow)
     int idx = ui->listWidget->currentIndex().row();
     QString currentEntry = entries->at(idx);
 
+    ui->statusBar->showMessage(QString::number(idx) + '/' + QString::number(entries->count()));
+
     if (currentEntry.contains("="))
     {
         QStringList parts = currentEntry.split("=");
@@ -340,4 +342,9 @@ void MainWindow::setModified(bool modd) {
     } else {
        setWindowTitle("Vocabulary");
     }
+}
+
+void MainWindow::on_listWidget_clicked(const QModelIndex &index)
+{
+
 }
