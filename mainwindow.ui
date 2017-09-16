@@ -6,37 +6,129 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>690</width>
+    <height>560</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Vocabulary</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(238, 238, 236);
+color: rgb(46, 52, 54);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>110</y>
-      <width>50</width>
-      <height>15</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Hello</string>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Keresés:</string>
+          </property>
+          <property name="buddy">
+           <cstring>lineEdit_searchfor</cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_searchfor"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_search">
+          <property name="text">
+           <string>Keresés</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QListWidget" name="listWidget">
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 14pt &quot;Nimbus Roman No9 L&quot;;</string>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>false</bool>
+          </property>
+          <property name="selectionRectVisible">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="listWidget_searchResults">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLineEdit" name="lineEdit_word"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_meaning"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_addModify">
+          <property name="text">
+           <string>Felvesz</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>690</width>
      <height>20</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionReload"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEleemk">
+    <property name="title">
+     <string>Szavak</string>
+    </property>
+    <addaction name="actionGo_To_Words"/>
+    <addaction name="separator"/>
+    <addaction name="actionNew"/>
+    <addaction name="actionEdit"/>
+    <addaction name="actionDelete"/>
+   </widget>
+   <widget class="QMenu" name="menuSearch">
+    <property name="title">
+     <string>Keresés</string>
+    </property>
+    <addaction name="actionSearch_For"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEleemk"/>
+   <addaction name="menuSearch"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -45,10 +137,93 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionSave"/>
+   <addaction name="separator"/>
+   <addaction name="actionGo_To_Words"/>
+   <addaction name="actionSearch_For"/>
+   <addaction name="separator"/>
+   <addaction name="actionNew"/>
+   <addaction name="actionEdit"/>
+   <addaction name="actionDelete"/>
+   <addaction name="separator"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionSave">
+   <property name="text">
+    <string>Mentés</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="action_j">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="text">
+    <string>Új</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionEdit">
+   <property name="text">
+    <string>Szerkesztés</string>
+   </property>
+   <property name="shortcut">
+    <string>F2</string>
+   </property>
+  </action>
+  <action name="actionGo_To_Words">
+   <property name="text">
+    <string>Ugrás szavakhoz</string>
+   </property>
+   <property name="shortcut">
+    <string>Esc</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>Törlés...</string>
+   </property>
+   <property name="toolTip">
+    <string>Törlés...</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="actionSearch_For">
+   <property name="text">
+    <string>Ugrás Kereséshez</string>
+   </property>
+   <property name="shortcut">
+    <string>F3</string>
+   </property>
+  </action>
+  <action name="actionReload">
+   <property name="text">
+    <string>Újra betöltés</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>listWidget</tabstop>
+  <tabstop>lineEdit_word</tabstop>
+  <tabstop>lineEdit_meaning</tabstop>
+  <tabstop>pushButton_addModify</tabstop>
+  <tabstop>lineEdit_searchfor</tabstop>
+  <tabstop>pushButton_search</tabstop>
+  <tabstop>listWidget_searchResults</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
