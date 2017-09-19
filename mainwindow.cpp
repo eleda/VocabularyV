@@ -65,7 +65,6 @@ void MainWindow::updateAddModifyFields(int currentRow)
     ui->lineEdit_word->setText(parts.at(0));
     ui->lineEdit_meaning->setText(parts.at(1));
     setUpdate(true);
-
     }
 }
 
@@ -87,17 +86,11 @@ void MainWindow::searchNow()
 
     for (int i = 0; i < entries->length(); i++)
     {
-        qDebug() << entries->at(i);
-        qDebug() << sfor;
-        qDebug() <<entries->at(i).contains(sfor, Qt::CaseInsensitive);
         if(entries->at(i).contains(sfor, Qt::CaseInsensitive)) {
             searchResults->append(entries->at(i));
             searchIndexes->append(i);
         }
     }
-
-    qDebug() << searchIndexes->length();
-
 
     for (int i = 0; i < searchResults->length(); i++)
     {
@@ -123,7 +116,6 @@ void MainWindow::on_pushButton_delete_clicked()
 
 void MainWindow::deleteWord()
 {
-
     int idx = ui->listWidget->row(ui->listWidget->currentItem());
 
     if (idx == -1) {
@@ -166,8 +158,7 @@ void MainWindow::deleteWord()
     }
 }
 
-void MainWindow::addModifyWord()
-{
+void MainWindow::addModifyWord(){
 
     // uj bejegyzes - modositas
         QString newEntry = ui->lineEdit_word->text() + "=" + ui->lineEdit_meaning->text();
@@ -185,7 +176,6 @@ void MainWindow::addModifyWord()
     setUpdate(false);
 
 }
-
 
 void MainWindow::setUpdate(bool upd)
 {
@@ -278,7 +268,7 @@ void MainWindow::load()
     QFile tfile(QDir::home().absoluteFilePath("words.txt"));
     if (!tfile.open(QIODevice::ReadOnly))
     {
-        qDebug() << "hiba";
+        QMessageBox::warning(NULL, NULL, "Nem lehetett betölteni a words.txt fájlt a HOME könyvtárból.");
     }
 
     QTextStream in(&tfile);
@@ -303,7 +293,7 @@ void MainWindow::save()
 {
     QFile tfile(QDir::home().absoluteFilePath("words.txt"));
     if (!tfile.open(QIODevice::WriteOnly)) {
-        qDebug() << "hiba";
+        QMessageBox::warning(this, NULL, "Nem lehetett elmenteni a words.txt fájlt a HOME könyvtárból.");
     }
 
     QTextStream out(&tfile);
@@ -329,4 +319,9 @@ void MainWindow::setModified(bool modd) {
     } else {
        setWindowTitle("Vocabulary");
     }
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox::about(this, NULL, "Vocabulary version V \n Verzió 5.0.0 BETA \n Elekes Dávid 2017.");
 }

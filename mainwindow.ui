@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Vocabulary</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/icons/img/ivocicon.png</normaloff>:/icons/img/ivocicon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
@@ -125,9 +129,16 @@
     </property>
     <addaction name="actionSearch_For"/>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Súgó</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEleemk"/>
    <addaction name="menuSearch"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -212,6 +223,11 @@
     <string>Újra betöltés</string>
    </property>
   </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>Névjegy...</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
@@ -223,6 +239,8 @@
   <tabstop>pushButton_search</tabstop>
   <tabstop>listWidget_searchResults</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
