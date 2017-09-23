@@ -29,8 +29,6 @@ private slots:
 
     void on_pushButton_search_clicked();
 
-    void on_listWidget_searchResults_currentRowChanged(int currentRow);
-
     void on_pushButton_delete_clicked();
 
     void on_listWidget_doubleClicked(const QModelIndex &index);

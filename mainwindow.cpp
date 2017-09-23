@@ -105,20 +105,17 @@ void MainWindow::searchNow()
         }
     }
 
+    if (searchResults->length() == 0) {
+        QMessageBox::warning(this, NULL, "Nincs találat!");
+    }
+
+
     for (int i = 0; i < searchResults->length(); i++)
     {
         ui->listWidget_searchResults->addItem(searchResults->at(i));
     }
     ui->listWidget_searchResults->setEnabled(true);
     ui->listWidget_searchResults->setFocus();
-}
-
-void MainWindow::on_listWidget_searchResults_currentRowChanged(int currentRow)
-{
-    // ráugrás a keresendő elemre
-    if (currentRow > -1) {
-    ui->listWidget->setCurrentRow(searchIndexes->at(currentRow));
-   }
 }
 
 void MainWindow::on_pushButton_delete_clicked()
@@ -212,8 +209,12 @@ void MainWindow::on_listWidget_doubleClicked(const QModelIndex &index)
 
 void MainWindow::on_listWidget_searchResults_doubleClicked(const QModelIndex &index)
 {
-    updateAddModifyFields(ui->listWidget->currentRow());
-    ui->lineEdit_word->setFocus();
+   // ráugrás a keresendő elemre
+   int currentRow = ui->listWidget_searchResults->currentIndex().row();
+
+   if (currentRow > -1) {
+    ui->listWidget->setCurrentRow(searchIndexes->at(currentRow));
+   }
 }
 
 void MainWindow::on_actionNew_triggered()
@@ -336,5 +337,5 @@ void MainWindow::setModified(bool modd) {
 
 void MainWindow::on_actionAbout_triggered()
 {
-    QMessageBox::about(this, NULL, "Vocabulary version V \n Verzió 5.0.0 BETA \n Elekes Dávid 2017.");
+    QMessageBox::about(this, NULL, "Vocabulary version V \n Verzió 5.0.923 BETA \n Elekes Dávid 2017.");
 }
